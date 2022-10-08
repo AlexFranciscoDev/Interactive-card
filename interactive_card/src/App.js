@@ -6,10 +6,14 @@ import './styles/styles.scss';
 
 function App() {
   return (
-    <div className="app">
-      <Card/>
-      <Form/>
-      <Thankyou/>
+    <div className="container">
+      <div className="leftColumn">
+        <Card />
+      </div>
+      <div className="rightColumn">
+        <Form />
+        <Thankyou />
+      </div>
     </div>
   );
 }

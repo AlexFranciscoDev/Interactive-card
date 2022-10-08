@@ -1,0 +1,26 @@
+@import '../utilities';
+.card-front,
+.card-back {
+    width: 420px;
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.card-front {
+    background-image: url('../../../public/img/bg-card-front.png');
+}
+
+.card-back {
+    background-image: url('../../../public/img/bg-card-back.png');
+}
+
+@media (max-width: $phone) {
+    .card-front,
+    .card-back {
+        width: 320px;
+        height: 200px;
+    }
+}

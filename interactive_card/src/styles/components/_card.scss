@@ -3,7 +3,6 @@
 .cards {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
 }
 
 .card-front,
@@ -67,7 +66,8 @@
 
 @media (max-width: $phone) {
     .cards {
-        flex-direction: column-reverse
+        flex-direction: column-reverse;
+        margin-top: 32px;
     }
 
     /* card front */
@@ -94,8 +94,10 @@
 
     /*card back*/
     .card-back {
-        margin-left: 30px;
-
+        margin: 0px;
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
         .card-cvc {
             top: 62px;
             right: 18px;

@@ -19,13 +19,17 @@ body {
     font-weight: 500;
     background-image: url('../../public/img/bg-main-desktop.png');
     background-repeat: no-repeat;
+    
 }
 
 .container {
     max-width: 1200px;
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     .leftColumn,
     .rightColumn {
@@ -41,7 +45,8 @@ body {
     }
 
     .container {
-        margin: 40px 20px;
+        height: auto;
+        margin: 0px 20px;
         flex-direction: column;
     }
 }

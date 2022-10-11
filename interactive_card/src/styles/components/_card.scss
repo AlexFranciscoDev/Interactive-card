@@ -1,4 +1,11 @@
 @import '../utilities';
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
 .card-front,
 .card-back {
     width: 420px;
@@ -9,18 +16,89 @@
     padding: 30px;
 }
 
+/* Card front */
 .card-front {
     background-image: url('../../../public/img/bg-card-front.png');
+
+    img {
+        width: 63px;
+    }
 }
 
+.card-number {
+    color: white;
+    font-size: 22px;
+    margin-top: 60px;
+    font-weight: 600;
+    letter-spacing: 2.3px;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .card-user,
+    .card-expirement,
+    .card-back .card-cvc {
+        text-transform: uppercase;
+        color: white;
+        font-size: 14px;
+        letter-spacing: 1.3px;
+    }
+}
+
+/* Card back */
 .card-back {
     background-image: url('../../../public/img/bg-card-back.png');
+    margin-top: 20px;
+    margin-left: 80px;
+
+    .card-cvc {
+        color: white;
+        font-size: 14px;
+        letter-spacing: 1.3px;
+        text-align: right;
+        position: relative;
+        top: 74px;
+        right: 23px;
+    }
 }
 
 @media (max-width: $phone) {
+    .cards {
+        flex-direction: column-reverse
+    }
+
+    /* card front */
     .card-front,
     .card-back {
         width: 320px;
         height: 200px;
+        padding: 15px 20px;
+    }
+
+    .card-front {
+        margin-top: -96px;
+    }
+
+    .card-number {
+        margin-top: 48px;
+        font-size: 16px;
+    }
+
+    .card-details .card-user,
+    .card-details .card-expirement {
+        font-size: 12px;
+    }
+
+    /*card back*/
+    .card-back {
+        margin-left: 30px;
+
+        .card-cvc {
+            top: 62px;
+            right: 18px;
+        }
     }
 }

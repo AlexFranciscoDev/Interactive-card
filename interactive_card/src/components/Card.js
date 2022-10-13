@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Card = ({ formData }) => {
-    
+    const [cardValues, setCardValues] = useState({
+        number: "9591 0000 0000 0000",
+        name: "FELICIA LEIRE",
+        month: "09",
+        year: "00",
+        cvc: "123"
+    });
+    /* Change data from cards on change */
+    useEffect(() => {
+        setCardValues(formData);
+    }, [formData])
     console.log("Card: " + JSON.stringify(formData))
     return (
         <div className="cards">
@@ -10,14 +20,14 @@ export const Card = ({ formData }) => {
                     <img src="/img/card-logo.svg" alt="card-logo" />
                     <div className="card-circle"></div>
                 </div>
-                <p className="card-number">9591 0000 0000 0000</p>
+                <p className="card-number">{cardValues.number ? cardValues.number : "9591 0000 0000 0000"}</p>
                 <div className="card-details">
-                    <span className="card-user">Felicia Leire</span>
-                    <span className="card-expirement">09/26</span>
+                    <span className="card-user">{ cardValues.name ? cardValues.name : "FELICIA LEIRE" }</span>
+                    <span className="card-expirement">{ cardValues.month ? cardValues.month : "09" }/{ cardValues.year ? cardValues.year : "00" }</span>
                 </div>
             </div>
             <div className="card-back">
-                <div className="card-cvc">123</div>
+                <div className="card-cvc">{ cardValues.cvc ? cardValues.cvc : "000"}</div>
             </div>
         </div>
     )

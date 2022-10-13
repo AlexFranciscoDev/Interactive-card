@@ -19,7 +19,7 @@ function App() {
       </div>
       <div className="rightColumn">
         <Form setFormData={setFormData}/>
-        <Thankyou />
+        {/* <Thankyou /> */}
       </div>
     </div>
   );

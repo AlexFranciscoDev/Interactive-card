@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({ formData }) => {
+    
+    console.log("Card: " + JSON.stringify(formData))
     return (
         <div className="cards">
             <div className="card-front">

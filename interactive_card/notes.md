@@ -25,6 +25,8 @@ Weight: 500
 
 Primero de todo, crear la estructura HTML y los estilos generales.
 
+Formulario, varios campos en la misma linea -- https://www.codegrepper.com/code-examples/html/form+show+2+input+in+same+line
+
 Las funciones principales son:
 
 - Rellenar el formulario y ver los detalles de la tarjeta en tiempo real -- USE STATE y USE REF

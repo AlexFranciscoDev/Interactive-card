@@ -1,5 +1,7 @@
 @import './utilities';
-@import './components/index';
+@import './components/card';
+@import './components/form';
+@import './components/thankyou';
 
 *, html {
     font-size: 100%;

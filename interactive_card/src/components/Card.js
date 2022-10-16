@@ -12,7 +12,6 @@ export const Card = ({ formData }) => {
     useEffect(() => {
         setCardValues(formData);
     }, [formData])
-    console.log("Card: " + JSON.stringify(formData))
     return (
         <div className="cards">
             <div className="card-front">

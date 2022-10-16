@@ -8,7 +8,7 @@ import './styles/styles.scss';
 function App() {
   const [formData, setFormData] = useState({});
   const getDataForm = (data) => {
-    console.log(data);
+    console.log("this is my data " +data);
   }
 
 

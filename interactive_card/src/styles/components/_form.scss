@@ -1,7 +1,7 @@
 @import '../utilities';
 
 .form_container {
-    max-width: 410px;
+    max-width: 480px;
 }
 
 .formCard p {
@@ -15,6 +15,7 @@
 
     input {
         margin-top: 8px;
+        margin-bottom: 10px;
         width: 100%;
         padding: 9px 12px;
         border: 1px solid rgb(237 237 237 / 1);
@@ -63,7 +64,7 @@
 
 /* Errors styles*/
 .error {
-    color: red
+    color: red;
 }
 
 .errorInput {

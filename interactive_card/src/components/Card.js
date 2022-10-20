@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 export const Card = ({ formData }) => {
-    const [cardValues, setCardValues] = useState({
-        number: "9591 0000 0000 0000",
-        name: "FELICIA LEIRE",
-        month: "09",
-        year: "00",
-        cvc: "123"
-    });
+    const [cardValues, setCardValues] = useState({});
     /* Change data from cards on change */
     useEffect(() => {
         setCardValues(formData);

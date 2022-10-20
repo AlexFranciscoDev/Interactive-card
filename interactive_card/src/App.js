@@ -7,6 +7,7 @@ import './styles/styles.scss';
 
 function App() {
   const [formData, setFormData] = useState({});
+  const [validatedCard, setValidatedCard] = useState(false);
   const getDataForm = (data) => {
     console.log("this is my data " +data);
   }
@@ -18,7 +19,8 @@ function App() {
         <Card formData={formData}/>
       </div>
       <div className="rightColumn">
-        <Form setFormData={setFormData}/>
+        {!validatedCard ? <Form setFormData={setFormData} setValidatedCard={setValidatedCard}/> : <Thankyou setValidatedCard={setValidatedCard}/>}
+        
         {/* <Thankyou /> */}
       </div>
     </div>

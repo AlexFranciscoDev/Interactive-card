@@ -36,6 +36,9 @@ Las funciones principales son:
     - Fecha de caducidad (MES Y AÑO) es correcto (2 cifras y son numeros) https://code.tutsplus.com/es/tutorials/8-regular-expressions-you-should-know--net-6149
     - CVC (3 CIFRAS Y NUMEROS) https://code.tutsplus.com/es/tutorials/8-regular-expressions-you-should-know--net-6149
 
+
+Validacion de formulario con React hook form -- https://react-hook-form.com/get-started/
+
 USEFORM:
 - Añadir y validacion por cada uno de los campos. https://github.com/AlexFranciscoDev/Master_react/blob/main/Master_React/teoria/10_masHooks.md
 

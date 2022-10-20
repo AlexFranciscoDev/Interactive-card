@@ -1,84 +1,159 @@
-import React, { useRef, useState } from 'react';
-import { useForm } from '../customHooks/useForm';
+import React, { useState } from 'react';
+// import { useForm } from '../customHooks/useForm';
+import { useForm } from "react-hook-form";
 
-export const Form = ({ setFormData }) => {
+export const Form = ({ setFormData, setValidatedCard }) => {
     const [data, setData] = useState();
+    // useForm variables
+    const { register, getValues, handleSubmit, formState: { errors } } = useForm();
     /* variable to keep the errors */
-    const [errors, setErrors] = useState({
-        nameError: "",
-        numberError: "",
-        monthError: "",
-        yearError: "",
-        cvcError: ""
-    });
-
-    const nameValue = useRef();
-    const numberValue = useRef();
-    const monthValue = useRef();
-    const yearValue = useRef();
-    const cvcValue = useRef();
-
-
-    const { emptyField } = useForm();
 
 
     /* Get data from form */
     const getData = () => {
         let cardInfo = {
-            name: nameValue.current.value,
-            number: numberValue.current.value,
-            month: monthValue.current.value,
-            year: yearValue.current.value,
-            cvc: cvcValue.current.value
+            name: getValues("name"),
+            number: getValues("number"),
+            month: getValues("month"),
+            year: getValues("year"),
+            cvc: getValues("cvc")
         }
+        console.log(cardInfo);
         setFormData(cardInfo);
-        console.log(emptyField(cardInfo.name));
     }
 
-    /* Submit the form and check errors */
-    const submitHandler = (e) => {
-        console.log("submiting");
-        e.preventDefault();
-        /*number*/
-        if (emptyField(e.target.name.value) == 0) {
-            setErrors({ nameError: "Can't be blank" });
-            e.target.name.classList.add("errorInput");
-        } else {
-            setErrors({ nameError: "" })
-            e.target.name.classList.remove("errorInput");
-        }
+    /* Submit the form and validate it */
+    const onSubmit = () => {
+        setValidatedCard(true);
     }
 
     return (
         <div className="form_container">
-            <form className="formCard" onSubmit={submitHandler}>
+            <form className="formCard" onSubmit={handleSubmit(onSubmit)}>
                 <p>
                     <label htmlFor="name">
                         Cardholder name
                     </label><br />
-                    <input onChange={getData} ref={nameValue} type="text" name="name" placeholder="e.g. Jane Appleseed" />
-                    <p className="error">{errors.nameError ? errors.nameError : ""}</p>
+                    <input
+                        className={errors.name && "errorInput"}
+                        type="text"
+                        name="name"
+                        placeholder="e.g. Jane Appleseed"
+                        {...register("name",
+                            {
+                                required: {
+                                    value: true,
+                                    message: "Can't be blank"
+                                },
+                                pattern: {
+                                    value: /^[a-zA-Z\s]*$/,
+                                    message: "Wrong format, letters only"
+                                },
+                                onChange: getData
+                            })}
+                    />
+                    {errors.name && <span className={errors.name && "error"}>{errors.name.message}</span>}
                 </p>
                 <p>
 
                     <label htmlFor="number">
                         Card number
                     </label><br />
-                    <input onChange={getData} ref={numberValue} type="text" name="number" placeholder="e.g. 1234 5678 9123 0000" />
+                    <input
+                        className={errors.number && "errorInput"}
+                        type="text"
+                        placeholder="e.g. 1234 5678 9123 0000"
+                        {...register("number",
+                            {
+                                required:
+                                {
+                                    value: true,
+                                    message: "Can't be blank"
+                                },
+                                pattern: {
+                                    value: /^[0-9]{4}\s[0-9]{4}\s[0-9]{4}\s[0-9]{4}?$/,
+                                    message: "Wrong format, numbers only"
+                                },
+                                onChange: getData
+                            })
+                        }
+                    />
+                    {errors.number && <span className={errors.number && "error"}>{errors.number.message}</span>}
                 </p>
                 <p className="formRow">
                     <div className="expiredDate">
                         <label htmlFor="expiredDate">
                             Exp. date (mm/yy)
                         </label>
-                        <input onChange={getData} ref={monthValue} type="number" name="month" placeholder="MM" />
-                        <input onChange={getData} ref={yearValue} type="number" name="year" placeholder="YY" />
+                        <input
+                            className={errors.month && "errorInput"}
+                            onChange={getData}    
+                            type="number"
+                            name="month"
+                            placeholder="MM"
+                            {...register("month",
+                                {
+                                    required: {
+                                        value: true,
+                                        message: "Can't be blank"
+                                    },
+                                    pattern: {
+                                        value: /^(0[1-9]|1[0-2])$/,
+                                        message: "Only numbers from 01 to 12"
+                                    },
+                                    onChange: getData
+                                })
+                            }
+                        />
+                        
+                        <input
+                            className={errors.year && "errorInput"}
+                            onChange={getData}
+                            type="number"
+                            name="year"
+                            placeholder="YY"
+                            {...register("year",
+                                {
+                                    required: {
+                                        value: true,
+                                        message: "Can't be blank"
+                                    },
+                                    pattern: {
+                                        value: /^[0-9]{2}$/,
+                                        message: "Wrong format, numbers only"
+                                    },
+                                    onChange: getData
+                                })
+                            }
+                        />
+                        {errors.month && <span className={errors.month && "error"}>{errors.month.message}</span>}
+                        {errors.year && <span className={errors.year && "error"}>{errors.year.message}</span>}
                     </div>
                     <div className='cvc'>
                         <label htmlFor="cvc">
                             CVC
                         </label>
-                        <input onChange={getData} ref={cvcValue} type="number" name="cvc" placeholder="e.g. 123" />
+                        <input
+                            className={errors.cvc && "errorInput"}
+                            onChange={getData}
+                            type="number"
+                            name="cvc"
+                            placeholder="e.g. 123"
+                            {...register("cvc",
+                                {
+                                    required: {
+                                        value: true,
+                                        message: "Can't be blank"
+                                    },
+                                    pattern: {
+                                        value: /^[0-9]{3}$/,
+                                        message: "Only 3 numbers allowed"
+                                    },
+                                    onChange: getData
+                                })
+                            }
+                        />
+                        {errors.cvc && <span className={errors.cvc && "error"}>{errors.cvc.message}</span>}
                     </div>
                 </p>
                 <br />

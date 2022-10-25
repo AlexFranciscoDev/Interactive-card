@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Card } from './components/Card';
+import { Footer } from './components/Footer';
 import { Form } from './components/Form';
 import { Thankyou } from './components/Thankyou';
 import logo from './logo.svg';
@@ -14,6 +15,7 @@ function App() {
 
 
   return (
+    <div>
     <div className="container">
       <div className="leftColumn">
         <Card formData={formData}/>
@@ -23,6 +25,8 @@ function App() {
         
         {/* <Thankyou /> */}
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

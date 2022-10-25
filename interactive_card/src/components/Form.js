@@ -91,6 +91,7 @@ export const Form = ({ setFormData, setValidatedCard }) => {
                             type="number"
                             name="month"
                             placeholder="MM"
+                            max="12"
                             {...register("month",
                                 {
                                     required: {
@@ -112,6 +113,7 @@ export const Form = ({ setFormData, setValidatedCard }) => {
                             type="number"
                             name="year"
                             placeholder="YY"
+                            max="12"
                             {...register("year",
                                 {
                                     required: {
@@ -139,6 +141,7 @@ export const Form = ({ setFormData, setValidatedCard }) => {
                             type="number"
                             name="cvc"
                             placeholder="e.g. 123"
+                            max="999"
                             {...register("cvc",
                                 {
                                     required: {

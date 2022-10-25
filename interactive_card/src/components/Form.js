@@ -113,7 +113,7 @@ export const Form = ({ setFormData, setValidatedCard }) => {
                             type="number"
                             name="year"
                             placeholder="YY"
-                            max="12"
+                            max="99"
                             {...register("year",
                                 {
                                     required: {

@@ -1,0 +1,74 @@
+@import '../utilities';
+
+.form_container {
+    max-width: 480px;
+}
+
+.formCard p {
+    label {
+
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    input {
+        margin-top: 8px;
+        margin-bottom: 10px;
+        width: 100%;
+        padding: 9px 12px;
+        border: 1px solid rgb(237 237 237 / 1);
+        border-radius: 6px;
+    }
+
+    input::placeholder {
+        color: rgb(216, 215, 215);
+        letter-spacing: 0.5;
+    }
+
+}
+
+.btn {
+    display: block;
+    color: white;
+    background: $veryDarkViolet;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.formRow div {
+    display: inline-block;
+
+    label {
+        display: block;
+    }
+}
+
+.formRow .expiredDate {
+    width: 50%;
+    
+    input[type="number"] {
+        width: 45%;
+    }
+
+    input[type="number"]:nth-child(2) {
+        margin-right: 10px;
+    }
+}
+
+.formRow .cvc {
+    width: 50%;
+}
+
+/* Errors styles*/
+.error {
+    color: red;
+}
+
+.errorInput {
+    border: 1px solid red !important;
+}
+
+

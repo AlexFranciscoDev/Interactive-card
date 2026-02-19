@@ -1,7 +1,8 @@
 # 💳 Interactive Card Details Form
 
 An interactive credit card form built with React.  
-Users can type card details and see the card preview update in real time, with validation handled via React Hook Form.
+Users can type card details and see the card preview update in real time, with validation.
+This project is inspired by one the of the projects from [Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw).
 
 ---
 
@@ -45,9 +46,8 @@ Users can type card details and see the card preview update in real time, with v
 ## 🔮 Improvements
 
 - Add stricter formatting (auto-spacing card number, uppercase name)
-- Improve accessibility (ARIA labels, focus management, error announcements)
-- Add automated tests for validation and UI behavior
-- Deploy a live demo (Vercel / Netlify)
+- Display formatting errors if there is any validation error
+- Add tests for validation and UI behavior
 
 ---
 
@@ -57,3 +57,19 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/AlexFranciscoDev/Interactive-card.git
+```
+
+Install dependencies:
+```
+npm install
+```
+
+Run locally:
+```
+npm start
+```
+
+App will run at:
+http://localhost:3000
+
+![Interactive-card-demo](https://raw.githubusercontent.com/AlexFranciscoDev/Interactive-card/main/public/interactive-card.gif)
